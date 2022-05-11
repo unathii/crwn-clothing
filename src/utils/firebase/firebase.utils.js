@@ -9,12 +9,12 @@ import {
 import {doc, getDoc, getFirestore, setDoc} from 'firebase/firestore';
 
 const firebaseConfig = {
-	apiKey: 'AIzaSyDDU4V-_QV3M8GyhC9SVieRTDM4dbiT0Yk',
-	authDomain: 'crwn-clothing-db-98d4d.firebaseapp.com',
-	projectId: 'crwn-clothing-db-98d4d',
-	storageBucket: 'crwn-clothing-db-98d4d.appspot.com',
-	messagingSenderId: '626766232035',
-	appId: '1:626766232035:web:506621582dab103a4d08d6',
+	apiKey: "AIzaSyAg-xKs-U3RpDa-OUqVF22UlgGUDevhih4",
+	authDomain: "crwn-clothing-db-5be22.firebaseapp.com",
+	projectId: "crwn-clothing-db-5be22",
+	storageBucket: "crwn-clothing-db-5be22.appspot.com",
+	messagingSenderId: "1039007035617",
+	appId: "1:1039007035617:web:8bc98d8e7bd8ac8d4e47a0"
 };
 
 const firebaseApp = initializeApp(firebaseConfig);
@@ -58,7 +58,7 @@ export const createUserDocumentFromAuth = async (
 			console.log('error creating the user', error.message);
 		}
 	}
-
+	console.log(userDocRef);
 	return userDocRef;
 };
 
