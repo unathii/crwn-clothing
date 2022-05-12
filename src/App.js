@@ -1,10 +1,13 @@
-// import Home from "./routes/home/home.component";
-import {Route, Routes, Outlet} from "react-router-dom";
+//React library imports
+import {Route, Routes} from "react-router-dom";
 
-import './categories.styles.scss'
+//Component Import
+import Navigation from "./routes/navigation_bar/navigation.component";
 import Home from "./routes/home/home.component";
-import Navigation from "./routes/navigation/navigation.component";
-import SignIn from "./routes/sign_in/sign_in.component";
+import Authentication from "./routes/authentication/authentication.component";
+
+//CSS imports
+import './categories.styles.scss'
 
 const App = () => {
 	return (
@@ -12,7 +15,7 @@ const App = () => {
 			<Route path={'/'} element={<Navigation/>}>
 				<Route index element={<Home/>}/>
 				<Route path={'shop'} element={<h1>Shopping List</h1>}/>
-				<Route path={'sign_in'} element={<SignIn/>}/>
+				<Route path={'auth'} element={<Authentication/>}/>
 			</Route>
 		</Routes>
 	);

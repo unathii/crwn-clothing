@@ -1,8 +1,5 @@
-import { useState } from 'react';
-import {
-	createAuthUserWithEmailAndPassword,
-	createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils';
+import {useState} from 'react';
+import {createAuthUserWithEmailAndPassword, createUserDocumentFromAuth,} from '../../utils/firebase/firebase.utils';
 
 import FormInput from "../form_input/form_input.component";
 import Button from '../button/button.component';
@@ -18,7 +15,7 @@ const defaultFormFields = {
 
 const SignUpForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
-	const { displayName, email, password, confirmPassword } = formFields;
+	const {displayName, email, password, confirmPassword} = formFields;
 
 	const resetFormFields = () => {
 		setFormFields(defaultFormFields);
@@ -27,18 +24,20 @@ const SignUpForm = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
+		console.log('here')
+
 		if (password !== confirmPassword) {
 			alert('passwords do not match');
 			return;
 		}
 
 		try {
-			const { user } = await createAuthUserWithEmailAndPassword(
+			const {user} = await createAuthUserWithEmailAndPassword(
 				email,
 				password
 			);
 
-			await createUserDocumentFromAuth(user, { displayName });
+			await createUserDocumentFromAuth(user, {displayName});
 			resetFormFields();
 		} catch (error) {
 			if (error.code === 'auth/email-already-in-use') {
@@ -50,9 +49,9 @@ const SignUpForm = () => {
 	};
 
 	const handleChange = (event) => {
-		const { name, value } = event.target;
+		const {name, value} = event.target;
 
-		setFormFields({ ...formFields, [name]: value });
+		setFormFields({...formFields, [name]: value});
 	};
 
 	return (
@@ -96,10 +95,11 @@ const SignUpForm = () => {
 					value={confirmPassword}
 				/>
 				{/*<Button type='submit'>Sign Up</Button>*/}
+				<Button type={'submit'}>
+					Sign Up
+				</Button>
 			</form>
-			<Button type={'submit'} >
-				Sign Up
-			</Button>
+
 		</div>
 	);
 };
